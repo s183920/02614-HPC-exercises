@@ -4,14 +4,14 @@ WARN   = -Wall
 CFLAGS	= $(OPT) $(WARN)
 OBJECTS = main.o data.o io.o
 
-lab1: $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o lab1 
+excer1.exe: $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o excer1.exe 
 
 clean:
 	@rm -f *.o core
 
 realclean: clean
-	@rm -f lab1
+	@rm -f excer1.exe 
 
 data.o: data.c data.h
 	$(CC) $(CFLAGS) -c data.c

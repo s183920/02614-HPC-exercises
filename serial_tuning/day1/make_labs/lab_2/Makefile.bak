@@ -1,0 +1,20 @@
+CC	= gcc
+OPT	= -g -O3
+WARN   = -Wall
+CFLAGS	= $(OPT) $(WARN)
+OBJECTS = main.o data.o io.o
+
+excer2.exe: $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o excer2.exe
+
+
+# clean up
+clean: 
+	@rm -f *.o core
+
+realclean: clean
+	@rm -f excer2.exe
+
+
+
+
