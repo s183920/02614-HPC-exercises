@@ -2,5 +2,5 @@
 #include "data.h"
 void 
 data(void) { 
-    printf("Working on data really fast.\n");
+    printf("Working on data.\n");
 };
