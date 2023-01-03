@@ -1,7 +1,7 @@
-CC	= gcc
-OPT	= -g -O3
+CC	= gcc 
+OPT	= -g -O3 -std=c99 -funroll-loops -flto
 CHIP	= 
-ISA	= 
+ISA	=  -mavx2
 DEFS	= -DDATA_ANALYSIS 
 LIBS	= -lm
 CFLAGS  = $(OPT) $(CHIP) $(ISA) $(DEFS) $(XOPT)
@@ -33,6 +33,8 @@ clean:
 realclean: clean
 	@/bin/rm -f $(TARGETS)
 
+clean_studio:
+	@/bin/rm -rf *.er core
 
 # DO NOT DELETE
 
