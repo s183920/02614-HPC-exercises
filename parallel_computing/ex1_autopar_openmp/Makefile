@@ -14,15 +14,15 @@ CFLAGS  = $(OPT) $(CHIP) $(ISA) $(DEFS) $(XOPT)
 ex1: realclean
 	@echo
 	@echo "ex1 basic "
-	gcc -O3 -ffast-math  -o ex1_basic ex1.c
+	gcc -Ofast -o ex1_basic ex1.c
 	@/usr/bin/time --format="Time = %E" ./ex1_basic
 	@echo
 	@echo "ex1 autopar"
-	gcc -O3 -ffast-math -ftree-parallelize-loops=4 -o ex1_autopar ex1.c
+	gcc -Ofast -ftree-parallelize-loops=4 -o ex1_autopar ex1.c
 	@/usr/bin/time --format="Time = %E" ./ex1_autopar
 	@echo
 	@echo "ex1 openmp"
-	gcc -O3 -ffast-math -fopenmp -o ex1_openmp  ex1.c
+	gcc -Ofast -fopenmp -o ex1_openmp  ex1.c
 	@OMP_NUM_THREADS=4 /usr/bin/time --format="Time = %E" ./ex1_openmp
 	@echo
 
