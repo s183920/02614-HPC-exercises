@@ -39,6 +39,27 @@ realclean: clean
 	@rm -f $(TARGET)
 	@rm -f mandelbrot.png
 
+
+test_cpu: realclean all
+	./mandelbrot 0
+
+test_loop: realclean all
+	./mandelbrot 1
+
+test_parallel: realclean all
+	@echo "Without warmup"
+	./mandelbrot 2 0
+	@echo "With warmup"
+	./mandelbrot 2 1
+
+test: realclean all
+	# @echo "CPU"
+	# ./mandelbrot 0
+	@echo "Loop"
+	./mandelbrot 1
+	@echo "Parallel"
+	./mandelbrot 2
+
 # dependencies
 #
 main.o  : main.cpp mandel_omp.h

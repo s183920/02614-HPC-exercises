@@ -16,6 +16,18 @@ CXXFLAGS = $(OPT) $(INC) $(ISA) $(PARA) $(XOPT)
 all: $(TARGET)
 
 $(TARGET): $(OBJS) 
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LIBS)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LIBS) $(DEFS)
 clean:
 	@/bin/rm -f *.o $(TARGET)
+
+ex1: helloworld
+	./helloworld
+	@echo "Number of lines: $$(./helloworld | wc -l)"
+
+ex2: helloworld
+	./helloworld 1
+	@echo "Number of lines: $$(./helloworld | wc -l)"
+
+ex3: helloworld
+	compute-sanitizer ./helloworld 1
+	@echo "Number of lines: $$(./helloworld | wc -l)"

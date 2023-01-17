@@ -1,0 +1,8 @@
+CPU vs GPU
+
+Core counts: 32 vs 108*64=6912 (SM*cuda)
+Max clock rates: 2900 MHz vs 1410 MHz
+L1 cache: 32 KB vs 
+L2 cache: 1024 KB vs 41943.040 KB
+L3 cache: 22528 KB vs 
+Main memory: 773501 vs 40370 MBytes (global memory)
