@@ -20,7 +20,10 @@ int main(int argc, char *argv[])
     // construct and the map clause later.
     double dummy = 1.0;
     #pragma omp target data map(tofrom: dummy)
-    {}
+    {
+        // dummy = 0.0;
+    }
 
     printf("time = %3.2f seconds\n", omp_get_wtime() - t);
+    // printf("Dummy= %lf", dummy);
 }
