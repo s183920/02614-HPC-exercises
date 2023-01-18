@@ -15,9 +15,16 @@ LIBS	= -lcuda -L$(CUDA_ROOT)/lib64 -lcudart -lcublas
 CFLAGS = $(OPT) $(INC) $(ISA) $(PARA) $(XOPT)
 CXXFLAGS = $(OPT) $(INC) $(ISA) $(PARA) $(XOPT)
 
-all: $(TARGET)
+all: module_load $(TARGET)
+
+module_load:
+	sh ../load_modules.sh
 
 $(TARGET): $(OBJS) 
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LIBS)
 clean:
 	@/bin/rm -f *.o $(TARGET)
+
+main.o: main.cpp matvec.h alloc2d.h
+alloc2d.o: alloc2d.h alloc2d.cpp 
+matvec.o: matvec.h matvec.cpp
